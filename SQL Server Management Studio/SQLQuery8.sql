@@ -15,11 +15,12 @@ SELECT * FROM tbl_nutrition WHERE nutrition_id BETWEEN 2202 AND 2206;
 
 SELECT species_name AS "Species Name:", nutrition_type AS "Nutrition Type:"
 FROM tbl_nutrition 
-FULL OUTER JOIN tbl_species
-ON species_id = nutrition_id
+INNER JOIN tbl_species
+ON species_nutrition = nutrition_id
+
 
 SELECT specialist_contact, specialist_fname, specialist_lname, species_name, species_care
 FROM tbl_specialist
-FULL OUTER JOIN tbl_species
-ON species_care = 'care_4'
+INNER JOIN tbl_species ON species_care = 'care_6'
+WHERE species_name = 'penguin'
 
