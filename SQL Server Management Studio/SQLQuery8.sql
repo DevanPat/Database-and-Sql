@@ -19,8 +19,12 @@ INNER JOIN tbl_species
 ON species_nutrition = nutrition_id
 
 
-SELECT specialist_contact, specialist_fname, specialist_lname, species_name, species_care
+SELECT specialist_contact AS 'Specialist contact:', specialist_fname AS 'Specialist first name:', specialist_lname AS 'Specialist last name:'
 FROM tbl_specialist
-INNER JOIN tbl_species ON species_care = 'care_6'
-WHERE species_name = 'penguin'
+INNER JOIN tbl_care
+ ON specialist_id = care_specialist
+ INNER JOIN tbl_species
+ ON species_care = care_id
+ WHERE species_name = 'penguin'
+
 
